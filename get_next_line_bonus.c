@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:08:03 by avarnier          #+#    #+#             */
-/*   Updated: 2020/02/05 14:14:54 by avarnier         ###   ########.fr       */
+/*   Updated: 2020/02/05 14:20:46 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int			get_next_line(int fd, char **line)
 	int			ret;
 	static char buffer[OPEN_MAX][BUFFER_SIZE + 1];
 
-	*line = ft_strdup(buffer);
+	*line = ft_strdup(buffer[fd]);
 	if (fd < 0 || !line || read(fd, buffer[fd], 0) == -1 || BUFFER_SIZE <= 0)
 		return (-1);
 	ret = BUFFER_SIZE;
